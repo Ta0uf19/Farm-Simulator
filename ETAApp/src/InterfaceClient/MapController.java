@@ -101,12 +101,12 @@ public class MapController implements Initializable, MapComponentInitializedList
 	                                + "<b>Surface</b> 56800 m² <br/>"
 	                                + "<b>Client</b> Client1");
 	        
-	        InfoWindow fredWilkeInfoWindow = new InfoWindow(infoWindowOptions);
+	        InfoWindow clientInfoWindow = new InfoWindow(infoWindowOptions);
 	        /*
 	         * Ouvrir la boîte avec click
 	         */
 	        map.addUIEventHandler(mark, UIEventType.click, (JSObject obj) -> { 
-	        	fredWilkeInfoWindow.open(map, mark);
+	        	clientInfoWindow.open(map, mark);
 	        });
 	        System.out.println("distance" + centreBle.distanceFrom(poly14));
 		}
