@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.weathericons.WeatherIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="pane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.LoginController">
+   <right>
+      <AnchorPane maxWidth="Infinity" prefHeight="562.0" prefWidth="867.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator layoutX="409.0" layoutY="14.0" orientation="VERTICAL" prefHeight="542.0" prefWidth="11.0" />
+            <Label fx:id="message" layoutX="458.0" layoutY="468.0" prefHeight="28.0" prefWidth="167.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="464.0" layoutY="393.0" onAction="#Login" prefHeight="43.0" prefWidth="301.0" ripplerFill="WHITE" style="-fx-background-color: #3498db;" text="Connexion" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="user" alignment="BOTTOM_LEFT" focusColor="#11bc36" labelFloat="true" layoutX="458.0" layoutY="248.0" prefHeight="34.0" prefWidth="301.0" promptText="Nom d'utilisateur">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="password" focusColor="#15ae24" labelFloat="true" layoutX="458.0" layoutY="316.0" prefHeight="34.0" prefWidth="301.0" promptText="Mot de passe">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXPasswordField>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="524.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@login.png" />
+               </image>
+            </ImageView>
+            <WeatherIconView />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
