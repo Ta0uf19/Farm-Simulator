@@ -57,6 +57,7 @@ public class Client {
 	public String getTelephone() {
 		return this.telephone;
 	}
+	
 
 	
 	public void setTelephone(String newTelephone) {
@@ -83,5 +84,13 @@ public class Client {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", adresse=" + adresse + ", telephone=" + telephone + ", typeCl=" + typeCl
+				+ ", nom=" + nom + ", prenom=" + prenom + "]";
+	}
+	
+	
+	
 
 }

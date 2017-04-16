@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import com.lynden.gmapsfx.GoogleMapView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="501.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.MapController">
    <children>
       <GoogleMapView fx:id="googleMapView" layoutX="12.0" layoutY="18.0" prefHeight="465.0" prefWidth="656.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="18.0" />
+      <AnchorPane layoutX="458.0" layoutY="23.0" prefHeight="278.0" prefWidth="202.0" style="-fx-background-color: rgba(255, 255, 255, 1); -fx-background-radius: 4;" AnchorPane.rightAnchor="31.0">
+         <children>
+            <JFXButton layoutX="25.0" layoutY="140.0" onAction="#showDistance" prefHeight="35.0" prefWidth="154.0" ripplerFill="WHITE" style="-fx-background-color: #3498db;" text="Calculer la distane" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="MAP_MARKER_MULTIPLE" size="30.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_CENTER" graphicTextGap="58.0" layoutX="24.0" layoutY="186.0" onAction="#mapReset" prefHeight="35.0" prefWidth="154.0" ripplerFill="WHITE" style="-fx-background-color: #e74c3c;" text="Effacer" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="MAP_MARKER_OFF" size="30.0" />
+               </graphic>
+            </JFXButton>
+            <Label fx:id="labelDistance" layoutX="20.0" layoutY="239.0" prefHeight="35.0" prefWidth="154.0" textFill="#4d4d4d">
+               <font>
+                  <Font name="Ubuntu Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="champ1" labelFloat="true" layoutX="25.0" layoutY="31.0" prefHeight="35.0" prefWidth="154.0" promptText="Adresse champ" />
+            <JFXTextField fx:id="champ2" labelFloat="true" layoutX="25.0" layoutY="87.0" prefHeight="35.0" prefWidth="154.0" promptText="Adresse champ" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

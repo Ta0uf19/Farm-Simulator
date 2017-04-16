@@ -40,7 +40,9 @@ public class ClientController implements Initializable {
 	    @FXML
 	    private ComboBox<String> tyV;
 	    
-	    
+	/*
+	 * Checkbox à compléter
+	 */
 	private TableColumn<Client, Integer> id = new TableColumn<>("Identifiant");
 	private TableColumn<Client, String> type = new TableColumn<>("Type Client");
 	private TableColumn<Client, String> nom = new TableColumn<>("Nom");

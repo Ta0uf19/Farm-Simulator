@@ -13,9 +13,19 @@ public class Champ {
 	private String adresse = "";
 
 	
-	public Champ() {
+	
+
+	public Champ(int id, String adresse, int surface, String type, String coordGps, String polygone, Client clients) {
 		super();
+		this.clients = clients;
+		this.id = id;
+		this.type = type;
+		this.coordGps = coordGps;
+		this.surface = surface;
+		this.polygone = polygone;
+		this.adresse = adresse;
 	}
+
 
 	public Client getClients() {
 		return this.clients;
@@ -50,7 +60,13 @@ public class Champ {
 	public String getCoordGps() {
 		return this.coordGps;
 	}
-
+	
+	public double getCenterLat() {
+		return Double.parseDouble(this.coordGps.split(",")[0]);
+	}
+	public double getCenterLong() {
+		return Double.parseDouble(this.coordGps.split(",")[1]);
+	}
 	
 	public void setCoordGps(String newCoordGps) {
 		this.coordGps = newCoordGps;
@@ -84,6 +100,13 @@ public class Champ {
 	
 	public void setAdresse(String newAdresse) {
 		this.adresse = newAdresse;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Champ [clients=" + clients.toString() + ", id=" + id + ", type=" + type + ", coordGps=" + coordGps + ", surface="
+				+ surface + ", polygone=" + polygone + ", adresse=" + adresse + "]";
 	}
 
 }

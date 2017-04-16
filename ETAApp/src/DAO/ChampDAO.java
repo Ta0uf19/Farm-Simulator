@@ -1,9 +1,9 @@
 
 package DAO;
 
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
-import DAO.DAO;
 import Gestionnaire.*;
 
 public class ChampDAO implements DAO<Champ> {
@@ -38,8 +38,23 @@ public class ChampDAO implements DAO<Champ> {
 
 	@Override
 	public List<Champ> recupererTout() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Champ> champs = new ArrayList<Champ>();
+		Champ champ = null;
+		DAO<Client> cl = new ClientDAO();
+		
+		try {
+			Statement stat = connexion.createStatement();
+			ResultSet resultat = stat.executeQuery("SELECT * FROM champ");
+			while(resultat.next()) {
+				champ = new Champ(resultat.getInt("idCh"), resultat.getString("adrCh"), resultat.getInt("suCh"), resultat.getString("tyculCh"), resultat.getString("gpslatCh") + ", " + resultat.getString("gpslonCh"), resultat.getString("polyCh"), cl.recuperer(resultat.getInt("idCl")));
+				champs.add(champ);
+				//System.out.println(champ);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return champs;
 	}
 
 	
