@@ -66,6 +66,7 @@ public class HomeController extends MainController {
 		Parent contenu;
 		try {
 			contenu = FXMLLoader.load(getClass().getResource("Map.fxml"));
+			System.out.println(event.getSource() + " Taget: " + event.getTarget());
 			this.setNodeHome(contenu);
 		} catch (IOException e) {
 			e.printStackTrace();

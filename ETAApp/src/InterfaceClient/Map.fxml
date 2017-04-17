@@ -23,13 +23,28 @@
                   <MaterialDesignIconView fill="WHITE" glyphName="MAP_MARKER_OFF" size="30.0" />
                </graphic>
             </JFXButton>
-            <Label fx:id="labelDistance" layoutX="20.0" layoutY="239.0" prefHeight="35.0" prefWidth="154.0" textFill="#4d4d4d">
+            <Label fx:id="labelDistance" alignment="CENTER" layoutX="20.0" layoutY="239.0" prefHeight="35.0" prefWidth="154.0" textAlignment="CENTER" textFill="#4d4d4d">
                <font>
                   <Font name="Ubuntu Bold" size="15.0" />
                </font>
             </Label>
             <JFXTextField fx:id="champ1" labelFloat="true" layoutX="25.0" layoutY="31.0" prefHeight="35.0" prefWidth="154.0" promptText="Adresse champ" />
             <JFXTextField fx:id="champ2" labelFloat="true" layoutX="25.0" layoutY="87.0" prefHeight="35.0" prefWidth="154.0" promptText="Adresse champ" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="458.0" layoutY="320.0" prefHeight="143.0" prefWidth="202.0" style="-fx-background-color: rgba(255, 255, 255, 1); -fx-background-radius: 4;" AnchorPane.rightAnchor="31.0">
+         <children>
+            <JFXButton layoutX="25.0" layoutY="91.0" onAction="#showMapClient" prefHeight="35.0" prefWidth="154.0" ripplerFill="WHITE" style="-fx-background-color: #1AC24B;" text="Voir les champs" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="MAP_MARKER_MULTIPLE" size="30.0" />
+               </graphic>
+            </JFXButton>
+            <JFXTextField fx:id="champClient" layoutX="25.0" layoutY="43.0" prefHeight="35.0" prefWidth="154.0" promptText="Nom Client" />
+            <Label fx:id="labelErrorClient" alignment="TOP_CENTER" layoutX="10.0" layoutY="14.0" prefHeight="35.0" prefWidth="184.0" textAlignment="CENTER" textFill="#fc0303" textOverrun="CLIP">
+               <font>
+                  <Font name="Ubuntu" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

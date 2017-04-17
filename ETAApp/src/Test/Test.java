@@ -16,6 +16,10 @@ public class Test {
 			System.out.println(Double.parseDouble(test));
 		}*/
 		
+		Client client = (new ClientDAO()).recupererParNom("jub");
+		
+		System.out.println(client);
+		
 		
 	}
 

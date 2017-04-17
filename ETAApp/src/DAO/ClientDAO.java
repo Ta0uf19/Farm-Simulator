@@ -50,7 +50,7 @@ public class ClientDAO implements DAO<Client> {
 		
 	}
 	/*
-	 * Récupérer la liste de toutes les agriculteurs;
+	 * Récupérer la liste de toutes les clients;
 	 */
 	@Override
 	public List<Client> recupererTout() {
@@ -76,7 +76,24 @@ public class ClientDAO implements DAO<Client> {
 		}
 		return liste;
 	}
-
+	
+	public Client recupererParNom(String nom) {
+		
+		Client cl = null;
+		try {
+			Statement stat = connexion.createStatement();
+			ResultSet resultat = stat.executeQuery("SELECT * FROM client WHERE nomCl='"+nom+"'");
+			if(resultat.next()) {
+				if(resultat.getString("tyCl").equals("Coopérative"))
+					cl = new Client(resultat.getInt("IdCl"), resultat.getString("nomCl"), resultat.getString("adrCl"), resultat.getString("telCl"));
+				else
+					cl = new Client(resultat.getInt("IdCl"), resultat.getString("nomCl"), resultat.getString("preCl"), resultat.getString("adrCl"), resultat.getString("telCl"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cl;
+	}
 
 	
 

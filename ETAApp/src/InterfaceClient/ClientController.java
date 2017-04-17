@@ -185,5 +185,8 @@ public class ClientController implements Initializable {
 	        tableClient.getSortOrder().addAll(sortOrder);
 	        tableClient.setItems(clientsFiltred);
 	    }
+	    
+	    
+	 
 }
 

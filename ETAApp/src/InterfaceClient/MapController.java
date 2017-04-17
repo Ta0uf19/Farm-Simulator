@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -28,21 +27,19 @@ import com.lynden.gmapsfx.service.directions.DirectionsRequest;
 import com.lynden.gmapsfx.service.directions.DirectionsResult;
 import com.lynden.gmapsfx.service.directions.DirectionsService;
 import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
-import com.lynden.gmapsfx.service.directions.DirectionsSteps;
-import com.lynden.gmapsfx.service.directions.Distance;
 import com.lynden.gmapsfx.service.directions.TravelModes;
-import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
-import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
-import com.lynden.gmapsfx.shapes.ArcBuilder;
 import com.lynden.gmapsfx.shapes.Polygon;
 import com.lynden.gmapsfx.shapes.PolygonOptions;
 import com.lynden.gmapsfx.util.MarkerImageFactory;
 
-import DAO.*;
+import DAO.ChampDAO;
+import DAO.ClientDAO;
+import DAO.DAO;
 import Geometry.JSONmanager;
 import Geometry.Point;
 import Gestionnaire.Champ;
+import Gestionnaire.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -61,6 +58,8 @@ public class MapController implements Initializable, MapComponentInitializedList
 	    @FXML private TextField champ1;
 	    @FXML private TextField champ2;
 	    @FXML private Label labelDistance;
+	    @FXML private TextField champClient;
+	    @FXML private Label labelErrorClient;
 	    
 	    private GoogleMap map;
 	    protected DirectionsRenderer directionsRenderer = null;
@@ -68,11 +67,12 @@ public class MapController implements Initializable, MapComponentInitializedList
 	    private TravelModes travel = TravelModes.DRIVING;
 	    //ZOOM
 	    private static final int ZOOM = 12;
+	    //
+	    public static String showMapClient =null;
 	    
 	    
 		@Override
 		public void initialize(URL url, ResourceBundle rb) {
-			//googleMapView.addMapInializedListener(() -> configureMap());
 			googleMapView.addMapInializedListener(this);
 			
 		}
@@ -105,58 +105,82 @@ public class MapController implements Initializable, MapComponentInitializedList
 	        map = googleMapView.createMap(mapOptions);
 	        
 	        /*
-	         * Nouvelle version 16/04 - récupérer les champs depuis bdd.
+	         * Nouvelle version 17/04 - récupérer les champs depuis bdd.
 	         */
-	        JSONmanager points = new JSONmanager();
 	        DAO<Champ> champ = new ChampDAO();
 	        List<Champ> champs = champ.recupererTout();
-	        List<Marker> markers = new ArrayList<Marker>();
-	        MarkerOptions markerOptions = new MarkerOptions().animation(Animation.BOUNCE).icon(MarkerImageFactory.createMarkerImage(baseDir()+"InterfaceClient/marker.png", "png"));
-	        InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
-	        infoWindowOptions.content("Loading");
-	        InfoWindow clientInfoWindow = new InfoWindow(infoWindowOptions);
+	        Client client = (new ClientDAO()).recupererParNom(showMapClient);
 	        
-	        for(Champ ch : champs) {
-	        	
-	        	Point[] point = points.read(ch.getPolygone());
-	        	List<LatLong> pAry = new ArrayList<LatLong>();
-		        for(Point p : point) {
-		        	pAry.add(new LatLong(p.x(), p.y()));
-		        }
-		        MVCArray pmvc = new MVCArray(pAry.toArray());
-		        Polygon arc = new Polygon(new PolygonOptions()
-		                .paths(pmvc)
-		                .strokeColor("red")
-		                .fillColor("lightBlue")
-		                .fillOpacity(0.3)
-		                .strokeWeight(2)
-		                .editable(false));
-		        map.addMapShape(arc);
-
-		       
-		        LatLong centreMarker = new LatLong(ch.getCenterLat(), ch.getCenterLong());
-		        System.out.println(ch.getCenterLat());
-		        markerOptions.position(centreMarker);
-		        Marker mark = new Marker(markerOptions);
-		        markers.add(mark);
-
-		        map.addUIEventHandler(mark, UIEventType.click, (JSObject obj) -> { 
-		          clientInfoWindow.setContent(("<h3><b>Propriétaire</b></h3> "+ch.getClients().getNom()+" "+ch.getClients().getPrenom()+"<br/>"
-		        		+ "<h3><b>Nom de la culture</b></h3> "+ch.getType()+" <br/>"
-                        + "<h3><b>Adresse</b></h3> "+ch.getAdresse()+" <br/>"
-                        + "<h3><b>Surface</b></h3> "+ch.getSurface()+" m² <br/>"
-                        ));
-		        	clientInfoWindow.open(map, mark);
-		        });
-		        
-	        }
 	      
-	        map.addMarkers(markers);
+	        if(client == null && showMapClient == null) {
+	        	 /*
+		         * Ajouter toutes les champs des clients
+		         */
+		        for(Champ ch : champs) {
+		        	addShapeMarkChamp(ch);
+		        }
+	        }
+	        else {
+	        	/*
+	        	 * Afficher les champs d'un seul Client
+	        	 */
+	        	for(Champ ch : champs) {
+		        	if(ch.getClients().getNom().toLowerCase().equals(showMapClient)) {
+		        			addShapeMarkChamp(ch);
+			        }
+		
+		        }
+	        }
+	        /*
+	         * Si le client n'existe pas
+	         */
+	        if(client == null && showMapClient != null) {
+    			labelErrorClient.setText("Le client n'existe pas \n Vérifiez le nom");
+	        }
+	        showMapClient = null;
+	        
 
 	       
 	       
 		}
 		
+		private void addShapeMarkChamp(Champ ch) {
+			
+		    JSONmanager points = new JSONmanager();
+		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(baseDir()+"InterfaceClient/marker.png", "png"));
+		    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
+		    InfoWindow clientInfoWindow = new InfoWindow(infoWindowOptions);
+		       
+			Point[] point = points.read(ch.getPolygone());
+        	List<LatLong> pAry = new ArrayList<LatLong>();
+	        for(Point p : point) {
+	        	pAry.add(new LatLong(p.x(), p.y()));
+	        }
+	        MVCArray pmvc = new MVCArray(pAry.toArray());
+	        Polygon arc = new Polygon(new PolygonOptions()
+	                .paths(pmvc)
+	                .strokeColor("blue")
+	                .fillColor("lightBlue")
+	                .fillOpacity(0.3)
+	                .strokeWeight(2)
+	                .editable(false));
+	        map.addMapShape(arc);
+
+	       
+	        LatLong centreMarker = new LatLong(ch.getCenterLat(), ch.getCenterLong());
+	        markerOptions.position(centreMarker);
+	        Marker mark = new Marker(markerOptions);
+
+	        map.addUIEventHandler(mark, UIEventType.click, (JSObject obj) -> { 
+	          clientInfoWindow.setContent(("<h3><b>Propriétaire</b></h3> "+ch.getClients().getNom()+" "+ch.getClients().getPrenom()+"<br/>"
+	        		+ "<h3><b>Nom de la culture</b></h3> "+ch.getType()+" <br/>"
+                    + "<h3><b>Adresse</b></h3> "+ch.getAdresse()+" <br/>"
+                    + "<h3><b>Surface</b></h3> "+ch.getSurface()+" m² <br/>"
+                    ));
+	        	clientInfoWindow.open(map, mark);
+	        });
+	        map.addMarker(mark);
+		}
 		
 		/*
 		 * Option - src path
@@ -187,6 +211,10 @@ public class MapController implements Initializable, MapComponentInitializedList
 	        }
 		}
 		
+		public void showMapClient() {
+			showMapClient = champClient.getText().toLowerCase();
+			mapInitialized();
+		}
 		
 		/*
 		 * Adresse to latLong
