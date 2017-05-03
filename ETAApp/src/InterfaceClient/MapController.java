@@ -216,24 +216,5 @@ public class MapController implements Initializable, MapComponentInitializedList
 			mapInitialized();
 		}
 		
-		/*
-		 * Adresse to latLong
-		 
-		public void getLatLongFromAdress(String address) {
-			  GeocodingService geocodingService = new GeocodingService();
-			  //LatLong latLong = null;
-			  geocodingService.geocode(address, (GeocodingResult[] results, GeocoderStatus status) -> {
-				  LatLong latLong = null;  
-				  if( status == GeocoderStatus.ZERO_RESULTS) {
-		                return;
-		            } else if( results.length > 1 ) {
-		                latLong = new LatLong(results[0].getGeometry().getLocation().getLatitude(), results[0].getGeometry().getLocation().getLongitude());
-		            } else {
-		                latLong = new LatLong(results[0].getGeometry().getLocation().getLatitude(), results[0].getGeometry().getLocation().getLongitude());
-		            }
-				  map.setCenter(latLong);
-				 
-		        });
-			//return latLong;
-		}*/
+	
 }
