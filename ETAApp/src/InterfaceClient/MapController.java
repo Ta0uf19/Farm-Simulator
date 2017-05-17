@@ -83,7 +83,6 @@ public class MapController implements Initializable, MapComponentInitializedList
 		        DirectionsRequest request = new DirectionsRequest(champ1.getText(), champ2.getText(), travel);
 		        directionsRenderer = new DirectionsRenderer(false, googleMapView.getMap(), googleMapView.getDirec());
 		        directionsService.getRoute(request, this, directionsRenderer);
-		       // directionsService.t
 			}
 		}
 		public void mapReset() {
