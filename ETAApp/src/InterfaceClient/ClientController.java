@@ -28,17 +28,10 @@ public class ClientController implements Initializable {
 	@FXML private CheckBox checkAgr;
 	@FXML private CheckBox checkCoop;
 	@FXML private TextField nomV;
-	@FXML
-	    private TextField prenomV;
-
-	    @FXML
-	    private TextField adresseV;
-
-	    @FXML
-	    private TextField telephoneV;
-
-	    @FXML
-	    private ComboBox<String> tyV;
+	@FXML private TextField prenomV;
+	@FXML private TextField adresseV;
+	@FXML private TextField telephoneV;
+	@FXML private ComboBox<String> tyV; // checkbox
 	    
 	/*
 	 * Checkbox à compléter
@@ -75,7 +68,6 @@ public class ClientController implements Initializable {
 		
 		id.setPrefWidth(100);
 		id.setCellValueFactory(new PropertyValueFactory<Client,Integer>("id"));
-		
         nom.setPrefWidth(150);
         nom.setCellValueFactory(new PropertyValueFactory<Client,String>("nom"));
         type.setPrefWidth(150);
@@ -178,13 +170,17 @@ public class ClientController implements Initializable {
 	        if(search.getText().equals("helo")) System.out.println("YEAH !!");
 	        return false;
 	 }
+	 
+	 /*
+	  * Réordonnner la table
+	  */
 
-	    private void reapplyTableSortOrder() {
+	 private void reapplyTableSortOrder() {
 	        ArrayList<TableColumn<Client, ?>> sortOrder = new ArrayList<>(tableClient.getSortOrder());
 	        tableClient.getSortOrder().clear();
 	        tableClient.getSortOrder().addAll(sortOrder);
 	        tableClient.setItems(clientsFiltred);
-	    }
+	 }
 	    
 	    
 	 

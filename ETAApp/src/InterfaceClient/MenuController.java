@@ -12,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class HomeController extends MainController {
+public class MenuController extends MainController {
 
 	
 	@FXML private Label label;
@@ -22,9 +22,8 @@ public class HomeController extends MainController {
 	 * Déconnexion
 	 */
 	public void logout(ActionEvent event) {
-		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			this.setNode(root);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -48,33 +47,51 @@ public class HomeController extends MainController {
 		}
 	}
 	
-	/*
-	 * Navigation menu - méthode
+	/**
+	 * Navigation menu
 	 */
 	
 	public void menuClient(ActionEvent event) {
-		Parent contenu;
-		try {
-			contenu = FXMLLoader.load(getClass().getResource("Client.fxml"));
-			this.setNodeHome(contenu);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		loadFXML("Client.fxml", event);
 	}
 	
 	public void menuMap(ActionEvent event) {
+		loadFXML("Map.fxml", event);
+	}
+	
+	public void menuAccueil(ActionEvent event) {
+		loadFXML("Home.fxml", event);
+	}
+	
+	/**
+	 * Charger le fichier et l'ajouter dans le noeud de la page - avec event 
+	 */
+	public void loadFXML(String file, ActionEvent event) {
 		Parent contenu;
 		try {
-			contenu = FXMLLoader.load(getClass().getResource("Map.fxml"));
-			System.out.println(event.getSource() + " Taget: " + event.getTarget());
+			contenu = FXMLLoader.load(getClass().getResource(file));
 			this.setNodeHome(contenu);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Charger le fichier et l'ajouter dans le noeud de la page - sans event
+	 */
+	public void loadFXML(String file) {
+		loadFXML(file, null);
+	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		/*
+		 * set page d'accueil
+		 */
 		label.setText(LoginController.getSession());
+		loadFXML("Home.fxml");
+		
+		
 	}
 }

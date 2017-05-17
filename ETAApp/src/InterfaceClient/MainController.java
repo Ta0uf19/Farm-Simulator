@@ -15,18 +15,15 @@ import javafx.util.Duration;
 public class MainController implements Initializable {
 	
 	@FXML public BorderPane pane;
-	@FXML public AnchorPane anchorpane;
+	/*@FXML public AnchorPane anchorpane;*/
 	
 	public void setNode(Node node) {
+		
 		pane.getChildren().clear();
-		//pane.getChildren().add(node);
 		pane.setCenter(node);
-		/*System.out.println(pane.prefWidthProperty());
-		pane.prefWidthProperty().bind(pane.widthProperty());
-		System.out.println(pane.prefWidthProperty());*/
 
 		/*
-		 * Transition
+		 * Transition effet
 		 * */
 		FadeTransition ft = new FadeTransition(Duration.millis(1500));
 	    ft.setNode(node);
@@ -38,7 +35,7 @@ public class MainController implements Initializable {
 	}
 	
 	public void setNodeHome(Node node) {
-		//anchorpane.getChildren().clear();
+
 		pane.setCenter(node);
 		
 	}
@@ -47,7 +44,6 @@ public class MainController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 	}
-	
 	
 	
 }

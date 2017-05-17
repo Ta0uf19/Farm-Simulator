@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane" prefHeight="552.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.HomeController">
+<BorderPane fx:id="pane" prefHeight="552.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.MenuController">
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="42.0" prefWidth="788.0" style="-fx-background-color: #ecf0f1;" BorderPane.alignment="CENTER">
          <children>
@@ -37,6 +37,11 @@
    <left>
       <VBox prefHeight="510.0" prefWidth="160.0" BorderPane.alignment="CENTER">
          <children>
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuAccueil" prefHeight="76.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Accueil" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="APPS" size="35" />
+               </graphic>
+            </JFXButton>
             <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuClient" prefHeight="76.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Clients" textFill="WHITE">
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="USERS" nodeOrientation="LEFT_TO_RIGHT" size="30.0" text="" wrappingWidth="30.785715103149414" />
@@ -70,14 +75,6 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="510.0" prefWidth="507.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="35.0" layoutY="20.0" prefHeight="17.0" prefWidth="206.0" text="Liste des commandes">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+      <AnchorPane prefHeight="510.0" prefWidth="507.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
