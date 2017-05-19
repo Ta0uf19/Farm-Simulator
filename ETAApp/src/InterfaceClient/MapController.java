@@ -3,6 +3,7 @@ package InterfaceClient;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -142,11 +143,16 @@ public class MapController implements Initializable, MapComponentInitializedList
 	       
 	       
 		}
-		
+		/**
+		 * Ajouter le champ et la mark et l'InfoWindow
+		 * @param champ
+		 */
 		private void addShapeMarkChamp(Champ ch) {
 			
+			String iconpath  = (baseDir()+"InterfaceClient/marker.png").replaceAll(" ", "%20");
+			
 		    JSONmanager points = new JSONmanager();
-		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(baseDir()+"InterfaceClient/marker.png", "png"));
+		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(iconpath, "png"));
 		    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
 		    InfoWindow clientInfoWindow = new InfoWindow(infoWindowOptions);
 		       
