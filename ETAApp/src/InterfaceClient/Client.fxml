@@ -44,7 +44,7 @@
       </GridPane>
       <JFXCheckBox fx:id="checkAgr" layoutX="40.0" layoutY="563.0" selected="true" text="Agriculteur" />
       <JFXCheckBox fx:id="checkCoop" layoutX="144.0" layoutY="564.0" selected="true" text="Coopérative" />
-      <JFXTextField fx:id="search" focusColor="#36bc25" labelFloat="true" layoutX="50.0" layoutY="196.0" prefHeight="27.0" prefWidth="395.0" promptText="Posez moi une question" unFocusColor="#139411">
+      <JFXTextField fx:id="search" focusColor="#36bc25" labelFloat="true" layoutX="50.0" layoutY="196.0" prefHeight="27.0" prefWidth="395.0" promptText="Recherche" unFocusColor="#139411">
          <font>
             <Font size="14.0" />
          </font>

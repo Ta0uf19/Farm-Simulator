@@ -144,9 +144,9 @@ public class MapController implements Initializable, MapComponentInitializedList
 		}
 		
 		private void addShapeMarkChamp(Champ ch) {
-			
+			String iconpath  = (baseDir()+"InterfaceClient/marker.png").replaceAll(" ", "%20");
 		    JSONmanager points = new JSONmanager();
-		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(baseDir()+"InterfaceClient/marker.png", "png"));
+		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(iconpath, "png"));
 		    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
 		    InfoWindow clientInfoWindow = new InfoWindow(infoWindowOptions);
 		       
