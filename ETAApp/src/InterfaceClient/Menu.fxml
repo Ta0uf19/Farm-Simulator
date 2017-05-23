@@ -47,7 +47,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="USERS" nodeOrientation="LEFT_TO_RIGHT" size="30.0" text="" wrappingWidth="30.785715103149414" />
                </graphic>
             </JFXButton>
-            <JFXButton alignment="CENTER" contentDisplay="TOP" prefHeight="75.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Machines" textFill="WHITE">
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuMachine" prefHeight="75.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Machines" textFill="WHITE">
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="TRUCK" size="30.0" wrappingWidth="31.0" />
                </graphic>
@@ -62,7 +62,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="MAP" size="30.0" text="" wrappingWidth="35.0" />
                </graphic>
             </JFXButton>
-            <JFXButton alignment="CENTER" contentDisplay="TOP" prefHeight="72.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Commandes" textFill="WHITE">
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuOrder" prefHeight="72.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Commandes" textFill="WHITE">
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="30.0" wrappingWidth="24.64285659790039" />
                </graphic>
