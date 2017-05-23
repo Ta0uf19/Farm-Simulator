@@ -62,7 +62,12 @@ public class MenuController extends MainController {
 	public void menuAccueil(ActionEvent event) {
 		loadFXML("Home.fxml", event);
 	}
-	
+	public void menuOrder(ActionEvent event) {
+		loadFXML("Order.fxml", event);
+	}
+	public void menuMachine(ActionEvent event) {
+		loadFXML("Machine.fxml", event);
+	}
 	/**
 	 * Charger le fichier et l'ajouter dans le noeud de la page - avec event 
 	 */

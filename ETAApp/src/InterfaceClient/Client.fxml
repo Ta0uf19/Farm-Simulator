@@ -30,21 +30,11 @@
                   <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                </graphic>
             </JFXButton>
-            <JFXButton buttonType="RAISED" contentDisplay="TOP" prefHeight="82.0" prefWidth="177.0" ripplerFill="#f24545" style="-fx-background-color: #6183E9; -fx-background-radius: 0;" text="Ajouter des clients" textFill="WHITE" GridPane.columnIndex="1">
-               <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
-               </graphic>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" contentDisplay="TOP" prefHeight="80.0" prefWidth="173.0" ripplerFill="#f24545" style="-fx-background-color: #6183E9; -fx-background-radius: 0;" text="Ajouter des clients" textFill="WHITE" GridPane.columnIndex="2">
-               <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
-               </graphic>
-            </JFXButton>
          </children>
       </GridPane>
       <JFXCheckBox fx:id="checkAgr" layoutX="40.0" layoutY="563.0" selected="true" text="Agriculteur" />
       <JFXCheckBox fx:id="checkCoop" layoutX="144.0" layoutY="564.0" selected="true" text="Coopérative" />
-      <JFXTextField fx:id="search" focusColor="#36bc25" labelFloat="true" layoutX="50.0" layoutY="196.0" prefHeight="27.0" prefWidth="395.0" promptText="Posez moi une question" unFocusColor="#139411">
+      <JFXTextField fx:id="search" focusColor="#36bc25" labelFloat="true" layoutX="50.0" layoutY="196.0" prefHeight="27.0" prefWidth="395.0" promptText="Recherche" unFocusColor="#139411">
          <font>
             <Font size="14.0" />
          </font>
@@ -75,18 +65,18 @@
             <JFXComboBox fx:id="tyV" labelFloat="true" layoutX="20.0" layoutY="276.0" prefHeight="25.0" prefWidth="213.0" promptText="Type Client" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
          </children>
       </AnchorPane>
-      <JFXButton layoutX="683.0" layoutY="560.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Sauvegarder" textFill="WHITE" AnchorPane.rightAnchor="41.0">
+      <JFXButton layoutX="683.0" layoutY="560.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="41.0">
          <graphic>
             <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
          </graphic>
       </JFXButton>
       <TableView fx:id="tableClient" layoutX="49.0" layoutY="233.0" prefHeight="322.0" prefWidth="403.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="49.0" />
-      <Label layoutX="469.0" layoutY="149.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Modification" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="480.0" layoutY="149.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Modification" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="49.0" layoutY="149.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Liste des clients" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="49.0" layoutY="150.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Liste des clients" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="13.0" />
          </font>

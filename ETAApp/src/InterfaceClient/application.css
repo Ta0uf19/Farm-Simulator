@@ -2,9 +2,9 @@
     src: url('Ubuntu.ttf');
 }
 .titledLabel {
-	-fx-background-color:  #34495e;
-	-fx-background-radius: 5;
-	-fx-alignment: center;
-	-fx-text-fill: #fff;
-	-fx-font-family: 'Ubuntu';
+	-fx-font-size: 10pt;
+    -fx-font-family: "Ubuntu";
+    -fx-text-fill: #000;
+	-fx-border-width: 1 2 1 2;
+	-fx-border-color: #000;
 }
