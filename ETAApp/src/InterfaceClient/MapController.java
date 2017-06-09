@@ -128,7 +128,11 @@ public class MapController implements Initializable, MapComponentInitializedList
 		}
 		
 		private void addShapeMarkChamp(Champ ch) {
+<<<<<<< HEAD
 			String iconpath  = (baseDir()+"InterfaceClient/view/marker.png").replaceAll(" ", "%20");
+=======
+			String iconpath  = (baseDir()+"InterfaceClient/marker.png").replaceAll(" ", "%20");
+>>>>>>> refs/remotes/origin/master
 		    JSONmanager points = new JSONmanager();
 		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(iconpath, "png"));
 		    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();

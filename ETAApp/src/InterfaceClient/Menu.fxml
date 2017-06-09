@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="pane" prefHeight="552.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.MenuController">
+   <top>
+      <HBox alignment="TOP_RIGHT" prefHeight="42.0" prefWidth="788.0" style="-fx-background-color: #ecf0f1;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="label" alignment="CENTER" contentDisplay="RIGHT" prefHeight="71.0" prefWidth="160.0" text="Bonjour, Taoufik">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXButton contentDisplay="RIGHT" onAction="#logout" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 0;" text="Se deconnecter" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="LOGOUT" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#setfullScreen" prefHeight="43.0" prefWidth="43.0" ripplerFill="#d3d3d3" style="-fx-background-color: #bdc3c7; -fx-background-radius: 0;" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="FULLSCREEN" size="35.0" wrappingWidth="35.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="510.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuAccueil" prefHeight="76.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Accueil" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="APPS" size="35" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuClient" prefHeight="76.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Clients" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USERS" nodeOrientation="LEFT_TO_RIGHT" size="30.0" text="" wrappingWidth="30.785715103149414" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuMachine" prefHeight="75.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Machines" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="TRUCK" size="30.0" wrappingWidth="31.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" contentDisplay="TOP" prefHeight="67.0" prefWidth="180.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Champs" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MAP_PIN" size="30.0" wrappingWidth="21.428571701049805" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuMap" prefHeight="75.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Carte" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MAP" size="30.0" text="" wrappingWidth="35.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#menuOrder" prefHeight="72.0" prefWidth="160.0" style="-fx-background-color: #17a540; -fx-background-radius: 0;" text="Commandes" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="30.0" wrappingWidth="24.64285659790039" />
+               </graphic>
+            </JFXButton>
+            <JFXListView prefHeight="0.0" prefWidth="160.0" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="510.0" prefWidth="507.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
