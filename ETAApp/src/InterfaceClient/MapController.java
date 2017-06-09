@@ -51,9 +51,6 @@ import netscape.javascript.JSObject;
 public class MapController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
 		
 
-		/*
-		 * last edit: 16/04/17
-		 */
 	    @FXML private GoogleMapView googleMapView;
 	    @FXML private TextField champ1;
 	    @FXML private TextField champ2;
@@ -63,12 +60,10 @@ public class MapController implements Initializable, MapComponentInitializedList
 	    
 	    private GoogleMap map;
 	    protected DirectionsRenderer directionsRenderer = null;
-	    // Travel mode
 	    private TravelModes travel = TravelModes.DRIVING;
-	    //ZOOM
 	    private static final int ZOOM = 12;
-	    //
-	    public static String showMapClient =null;
+	    private static String showMapClient = null;
+	    private InfoWindow lastwindow = null;
 	    
 	    
 		@Override
@@ -77,18 +72,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 			
 		}
 		
-		public void showDistance(ActionEvent e) {
-			if(!champ1.getText().isEmpty() && !champ2.getText().isEmpty()) {
-				DirectionsService directionsService = new DirectionsService();
-		        DirectionsRequest request = new DirectionsRequest(champ1.getText(), champ2.getText(), travel);
-		        directionsRenderer = new DirectionsRenderer(false, googleMapView.getMap(), googleMapView.getDirec());
-		        directionsService.getRoute(request, this, directionsRenderer);
-			}
-		}
-		public void mapReset() {
-			 map.clearMarkers();
-		
-		}
+
 		@Override
 		public void mapInitialized() {
 
@@ -144,7 +128,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 		}
 		
 		private void addShapeMarkChamp(Champ ch) {
-			String iconpath  = (baseDir()+"InterfaceClient/marker.png").replaceAll(" ", "%20");
+			String iconpath  = (baseDir()+"InterfaceClient/view/marker.png").replaceAll(" ", "%20");
 		    JSONmanager points = new JSONmanager();
 		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(iconpath, "png"));
 		    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
@@ -170,13 +154,18 @@ public class MapController implements Initializable, MapComponentInitializedList
 	        markerOptions.position(centreMarker);
 	        Marker mark = new Marker(markerOptions);
 
-	        map.addUIEventHandler(mark, UIEventType.click, (JSObject obj) -> { 
+	        map.addUIEventHandler(mark, UIEventType.click, (JSObject obj) -> {
+		        if(lastwindow != null) {
+		        	lastwindow.close();
+		        }
+	        	
 	          clientInfoWindow.setContent(("<h3><b>Propriétaire</b></h3> "+ch.getClients().getNom()+" "+ch.getClients().getPrenom()+"<br/>"
 	        		+ "<h3><b>Nom de la culture</b></h3> "+ch.getType()+" <br/>"
                     + "<h3><b>Adresse</b></h3> "+ch.getAdresse()+" <br/>"
                     + "<h3><b>Surface</b></h3> "+ch.getSurface()+" m² <br/>"
                     ));
 	        	clientInfoWindow.open(map, mark);
+	        	lastwindow = clientInfoWindow;
 	        });
 	        map.addMarker(mark);
 		}
@@ -215,6 +204,19 @@ public class MapController implements Initializable, MapComponentInitializedList
 			mapInitialized();
 		}
 		
+		
+		public void showDistance(ActionEvent e) {
+			if(!champ1.getText().isEmpty() && !champ2.getText().isEmpty()) {
+				DirectionsService directionsService = new DirectionsService();
+		        DirectionsRequest request = new DirectionsRequest(new LatLong(60.1625332, 24.935426), new LatLong( 60.1633472, 24.9202176), travel);
+		        directionsRenderer = new DirectionsRenderer(false, googleMapView.getMap(), googleMapView.getDirec());
+		        directionsService.getRoute(request, this, directionsRenderer);
+			}
+		}
+		public void mapReset() {
+			 map.clearMarkers();
+		
+		}
 		/*
 		 * Adresse to latLong
 		 

@@ -26,7 +26,7 @@ public class LoginController extends MainController {
 		if(log.isValid(user.getText(), password.getText())) {
 			
 			sessionId = user.getText();
-			Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/InterfaceClient/view/Menu.fxml"));
 			this.setNode(root);
 
 		}

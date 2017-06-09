@@ -18,7 +18,7 @@ public class MenuController extends MainController {
 	@FXML private Label label;
 	private boolean fullScreen = false;
 	
-	/*
+	/**
 	 * Déconnexion
 	 */
 	public void logout(ActionEvent event) {
@@ -30,7 +30,7 @@ public class MenuController extends MainController {
 		}
 	}
 	
-	/*
+	/**
 	 * Option - Full screen
 	 */
 	public void setfullScreen(ActionEvent event) {
@@ -74,7 +74,7 @@ public class MenuController extends MainController {
 	public void loadFXML(String file, ActionEvent event) {
 		Parent contenu;
 		try {
-			contenu = FXMLLoader.load(getClass().getResource(file));
+			contenu = FXMLLoader.load(getClass().getResource("/InterfaceClient/view/"+file));
 			this.setNodeHome(contenu);
 		} catch (IOException e) {
 			e.printStackTrace();

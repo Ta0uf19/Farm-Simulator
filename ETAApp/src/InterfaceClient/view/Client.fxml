@@ -30,6 +30,11 @@
                   <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                </graphic>
             </JFXButton>
+            <JFXButton buttonType="RAISED" contentDisplay="TOP" prefHeight="80.0" prefWidth="174.0" ripplerFill="#f24545" style="-fx-background-color: #6183E9; -fx-background-radius: 0;" text="Modifier des clients" textFill="WHITE" GridPane.columnIndex="1">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
+               </graphic>
+            </JFXButton>
          </children>
       </GridPane>
       <JFXCheckBox fx:id="checkAgr" layoutX="40.0" layoutY="563.0" selected="true" text="Agriculteur" />
@@ -71,12 +76,12 @@
          </graphic>
       </JFXButton>
       <TableView fx:id="tableClient" layoutX="49.0" layoutY="233.0" prefHeight="322.0" prefWidth="403.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="49.0" />
-      <Label alignment="CENTER" layoutX="480.0" layoutY="149.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Modification" textFill="WHITE">
+      <Label layoutX="480.0" layoutY="149.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Modification des clients" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="49.0" layoutY="150.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Liste des clients" textFill="WHITE">
+      <Label contentDisplay="TOP" layoutX="49.0" layoutY="150.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Liste des clients" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="13.0" />
          </font>

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Login extends Application  {
 	public void start(Stage window) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/InterfaceClient/view/Login.fxml"));
 			Scene scene = new Scene(root);
 			window.setTitle("Entreprise de Travaux Agricoles");
 			window.setScene(scene);
