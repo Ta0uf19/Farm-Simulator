@@ -2,51 +2,35 @@
 package Gestionnaire;
 
 import Gestionnaire.Machine;
-// Start of user code (user defined imports)
-
-// End of user code
-
 
 public class Moissoneuse extends Machine {
 	
 	private int consoR = 0;
-
-	
 	private int consoF = 0;
-
-	
 	private int tremie = 0;
-
-	
 	private int lgCoupe = 0;
-
-	
 	private int lgRoute = 0;
-
-	
 	private int hauteur = 0;
-
-	
 	private int poids = 0;
-
-	
 	private int vitesse = 0;
 
-	// Start of user code (user defined attributes for Moissoneuse)
-
-	// End of user code
-
 	
-	public Moissoneuse() {
-		// Start of user code constructor for Moissoneuse)
-		super();
-		// End of user code
+	public Moissoneuse(int id, String marque, String modele, Boolean etat, int consoR, int consoF, int tremie,
+			int lgCoupe, int lgRoute, int hauteur, int poids, int vitesse) {
+		super(id, marque, modele, etat);
+		
+		this.consoR = consoR;
+		this.consoF = consoF;
+		this.tremie = tremie;
+		this.lgCoupe = lgCoupe;
+		this.lgRoute = lgRoute;
+		this.hauteur = hauteur;
+		this.poids = poids;
+		this.vitesse = vitesse;
 	}
 
-	// Start of user code (user defined methods for Moissoneuse)
 
-	// End of user code
-	
+
 	public int getConsoR() {
 		return this.consoR;
 	}
