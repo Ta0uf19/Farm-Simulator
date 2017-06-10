@@ -1,39 +1,25 @@
 
 package Gestionnaire;
 
-// Start of user code (user defined imports)
-
-// End of user code
 
 
 public class Machine {
 	
 	private int id = 0;
-
-	
 	private String marque = "";
-
-	
 	private String modele = "";
-
-	
 	private Boolean etat = Boolean.FALSE;
 
-	// Start of user code (user defined attributes for Machine)
-
-	// End of user code
-
 	
-	public Machine() {
-		// Start of user code constructor for Machine)
+	
+	public Machine(int id, String marque, String modele, Boolean etat) {
 		super();
-		// End of user code
+		this.id = id;
+		this.marque = marque;
+		this.modele = modele;
+		this.etat = etat;
 	}
 
-	// Start of user code (user defined methods for Machine)
-
-	// End of user code
-	
 	public int getId() {
 		return this.id;
 	}
