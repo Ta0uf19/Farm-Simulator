@@ -2,30 +2,18 @@
 package Gestionnaire;
 
 import Gestionnaire.Machine;
-// Start of user code (user defined imports)
-
-// End of user code
 
 
 public class Tracteur extends Machine {
 	
-	private String capacite = "";
+	private String capacite;
 
-	// Start of user code (user defined attributes for Tracteur)
-
-	// End of user code
-
-	
-	public Tracteur() {
-		// Start of user code constructor for Tracteur)
-		super();
-		// End of user code
+	public Tracteur(int id, String marque, String modele, int etat, String capacite) {
+		super(id, marque, modele, etat);
+		this.capacite = capacite;
 	}
 
-	// Start of user code (user defined methods for Tracteur)
 
-	// End of user code
-	
 	public String getCapacite() {
 		return this.capacite;
 	}

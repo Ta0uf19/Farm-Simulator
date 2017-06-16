@@ -16,9 +16,11 @@ public class Test {
 			System.out.println(Double.parseDouble(test));
 		}*/
 		
-		Client client = (new ClientDAO()).recupererParNom("jub");
+		List<Machine> machines = (new MachineDAO()).recupererTout();
 		
-		System.out.println(client);
+		for(Machine m : machines) {
+			System.out.println(m);
+		}
 		
 		
 	}

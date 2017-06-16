@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane" prefHeight="552.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.MenuController">
+<BorderPane fx:id="pane" prefHeight="600.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.MenuController">
    <top>
-      <HBox alignment="TOP_RIGHT" prefHeight="42.0" prefWidth="788.0" style="-fx-background-color: #ecf0f1;" BorderPane.alignment="CENTER">
+      <HBox alignment="TOP_RIGHT" prefHeight="22.0" prefWidth="772.0" style="-fx-background-color: #ecf0f1;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="label" alignment="CENTER" contentDisplay="RIGHT" prefHeight="71.0" prefWidth="160.0" text="Bonjour, Taoufik">
                <font>
@@ -75,6 +75,6 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="510.0" prefWidth="507.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="509.0" prefWidth="648.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

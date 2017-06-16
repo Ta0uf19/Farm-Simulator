@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.GMapMouseEvent;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.Animation;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
@@ -60,7 +61,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 	    
 	    private GoogleMap map;
 	    protected DirectionsRenderer directionsRenderer = null;
-	    private TravelModes travel = TravelModes.DRIVING;
+	    private TravelModes travel = TravelModes.WALKING;
 	    private static final int ZOOM = 12;
 	    private static String showMapClient = null;
 	    private InfoWindow lastwindow = null;
@@ -122,17 +123,15 @@ public class MapController implements Initializable, MapComponentInitializedList
 	        }
 	        showMapClient = null;
 	        
-
+	    
 	       
 	       
 		}
 		
 		private void addShapeMarkChamp(Champ ch) {
-
-			String iconpath  = (baseDir()+"InterfaceClient/view/marker.png").replaceAll(" ", "%20");
-
+			
 		    JSONmanager points = new JSONmanager();
-		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage(iconpath, "png"));
+		    MarkerOptions markerOptions = new MarkerOptions().animation(Animation.DROP).icon(MarkerImageFactory.createMarkerImage("/InterfaceClient/view/marker.png", "png"));
 		    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
 		    InfoWindow clientInfoWindow = new InfoWindow(infoWindowOptions);
 		       
@@ -171,21 +170,6 @@ public class MapController implements Initializable, MapComponentInitializedList
 	        });
 	        map.addMarker(mark);
 		}
-		
-		/*
-		 * Option - src path
-		 */
-		private String baseDir() {
-	        String baseDir = "";
-	        try {
-	            baseDir = new File(".").getCanonicalPath();
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	        baseDir = baseDir.replace('\\','/');
-	        baseDir = "file:///" + baseDir + "/src/";
-	        return baseDir;
-	    }
 
 		@Override
 		public void directionsReceived(DirectionsResult results, DirectionStatus status) {
@@ -209,14 +193,18 @@ public class MapController implements Initializable, MapComponentInitializedList
 		
 		public void showDistance(ActionEvent e) {
 			if(!champ1.getText().isEmpty() && !champ2.getText().isEmpty()) {
+				if(directionsRenderer != null) {
+					directionsRenderer.setMap(null);
+				}
 				DirectionsService directionsService = new DirectionsService();
-		        DirectionsRequest request = new DirectionsRequest(new LatLong(60.1625332, 24.935426), new LatLong( 60.1633472, 24.9202176), travel);
+		        DirectionsRequest request = new DirectionsRequest(champ1.getText(), champ2.getText(), travel);
 		        directionsRenderer = new DirectionsRenderer(false, googleMapView.getMap(), googleMapView.getDirec());
 		        directionsService.getRoute(request, this, directionsRenderer);
 			}
 		}
 		public void mapReset() {
-			 map.clearMarkers();
+			 
+			 directionsRenderer.setMap(null);
 		
 		}
 		/*

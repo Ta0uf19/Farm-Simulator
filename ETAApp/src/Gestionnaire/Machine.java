@@ -1,39 +1,30 @@
-
 package Gestionnaire;
 
-// Start of user code (user defined imports)
-
-// End of user code
 
 
 public class Machine {
 	
 	private int id = 0;
-
-	
 	private String marque = "";
-
-	
 	private String modele = "";
+	private int etat = 0;
+	private String dispo;
 
 	
-	private Boolean etat = Boolean.FALSE;
-
-	// Start of user code (user defined attributes for Machine)
-
-	// End of user code
-
 	
-	public Machine() {
-		// Start of user code constructor for Machine)
+	public Machine(int id, String marque, String modele, int etat) {
 		super();
-		// End of user code
+		this.id = id;
+		this.marque = marque;
+		this.modele = modele;
+		this.etat = etat;
+		if(etat == 0) {
+			this.dispo = "Non";
+		} else {
+			this.dispo = "Oui";
+		}
 	}
 
-	// Start of user code (user defined methods for Machine)
-
-	// End of user code
-	
 	public int getId() {
 		return this.id;
 	}
@@ -63,14 +54,31 @@ public class Machine {
 		this.modele = newModele;
 	}
 
-	
-	public Boolean getEtat() {
-		return this.etat;
+	public int getEtat() {
+		return etat;
+	}
+
+	public void setEtat(int etat) {
+		this.etat = etat;
+	}
+
+	public String getDispo() {
+		return dispo;
+	}
+
+	public void setDispo(String dispo) {
+		this.dispo = dispo;
+	}
+
+	@Override
+	public String toString() {
+		return "Machine [id=" + id + ", marque=" + marque + ", modele=" + modele + ", etat=" + etat + ", dispo=" + dispo
+				+ "]";
 	}
 
 	
-	public void setEtat(Boolean newEtat) {
-		this.etat = newEtat;
-	}
+
+	
+	
 
 }

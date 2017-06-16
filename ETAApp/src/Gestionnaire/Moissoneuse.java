@@ -2,51 +2,35 @@
 package Gestionnaire;
 
 import Gestionnaire.Machine;
-// Start of user code (user defined imports)
-
-// End of user code
-
 
 public class Moissoneuse extends Machine {
 	
 	private int consoR = 0;
-
-	
 	private int consoF = 0;
-
-	
 	private int tremie = 0;
-
-	
 	private int lgCoupe = 0;
-
-	
 	private int lgRoute = 0;
-
-	
 	private int hauteur = 0;
-
-	
 	private int poids = 0;
+	private int capaciteReserve = 0;
 
 	
-	private int vitesse = 0;
-
-	// Start of user code (user defined attributes for Moissoneuse)
-
-	// End of user code
-
-	
-	public Moissoneuse() {
-		// Start of user code constructor for Moissoneuse)
-		super();
-		// End of user code
+	public Moissoneuse(int id, String marque, String modele, int etat, int consoR, int consoF, int tremie,
+			int lgCoupe, int lgRoute, int hauteur, int poids, int capaciteReserve) {
+		super(id, marque, modele, etat);
+		
+		this.consoR = consoR; 
+		this.consoF = consoF; 
+		this.tremie = tremie; 
+		this.lgCoupe = lgCoupe; 
+		this.lgRoute = lgRoute; 
+		this.hauteur = hauteur; 
+		this.poids = poids;
+		this.capaciteReserve = capaciteReserve;
 	}
 
-	// Start of user code (user defined methods for Moissoneuse)
 
-	// End of user code
-	
+
 	public int getConsoR() {
 		return this.consoR;
 	}
@@ -116,14 +100,18 @@ public class Moissoneuse extends Machine {
 		this.poids = newPoids;
 	}
 
-	
-	public int getVitesse() {
-		return this.vitesse;
+
+
+	public int getCapaciteReserve() {
+		return capaciteReserve;
 	}
 
-	
-	public void setVitesse(int newVitesse) {
-		this.vitesse = newVitesse;
+
+
+	public void setCapaciteReserve(int capaciteReserve) {
+		this.capaciteReserve = capaciteReserve;
 	}
+
+
 
 }

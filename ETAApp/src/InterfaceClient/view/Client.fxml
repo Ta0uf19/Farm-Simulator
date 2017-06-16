@@ -5,86 +5,114 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="622.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.ClientController">
+<AnchorPane prefHeight="622.0" prefWidth="851.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.ClientController">
    <children>
-      <GridPane layoutX="50.0" layoutY="39.0" prefHeight="80.0" prefWidth="540.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="185.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="188.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="20.0" prefWidth="176.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <JFXButton buttonType="RAISED" contentDisplay="TOP" prefHeight="80.0" prefWidth="174.0" ripplerFill="#f24545" style="-fx-background-color: #6183E9; -fx-background-radius: 0;" text="Ajouter des clients" textFill="WHITE">
-               <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
-               </graphic>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" contentDisplay="TOP" prefHeight="80.0" prefWidth="174.0" ripplerFill="#f24545" style="-fx-background-color: #6183E9; -fx-background-radius: 0;" text="Modifier des clients" textFill="WHITE" GridPane.columnIndex="1">
-               <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
-               </graphic>
-            </JFXButton>
-         </children>
-      </GridPane>
-      <JFXCheckBox fx:id="checkAgr" layoutX="40.0" layoutY="563.0" selected="true" text="Agriculteur" />
-      <JFXCheckBox fx:id="checkCoop" layoutX="144.0" layoutY="564.0" selected="true" text="Coopérative" />
-      <JFXTextField fx:id="search" focusColor="#36bc25" labelFloat="true" layoutX="50.0" layoutY="196.0" prefHeight="27.0" prefWidth="395.0" promptText="Recherche" unFocusColor="#139411">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXTextField>
-      <MaterialDesignIconView glyphName="MAGNIFY" layoutX="419.0" layoutY="219.0" size="25.0" text="" wrappingWidth="25.0" />
-      <AnchorPane layoutX="469.0" layoutY="234.0" prefHeight="322.0" prefWidth="349.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="33.0">
-         <children>
-            <JFXTextField fx:id="nomV" labelFloat="true" layoutX="23.0" layoutY="29.0" prefHeight="27.0" prefWidth="213.0" promptText="Nom" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="prenomV" labelFloat="true" layoutX="20.0" layoutY="85.0" prefHeight="27.0" prefWidth="213.0" promptText="Prénom" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="adresseV" labelFloat="true" layoutX="20.0" layoutY="148.0" prefHeight="27.0" prefWidth="213.0" promptText="Adresse" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="telephoneV" labelFloat="true" layoutX="20.0" layoutY="214.0" prefHeight="27.0" prefWidth="213.0" promptText="Numéro téléphone (+33)" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </JFXTextField>
-            <JFXComboBox fx:id="tyV" labelFloat="true" layoutX="20.0" layoutY="276.0" prefHeight="25.0" prefWidth="213.0" promptText="Type Client" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-         </children>
-      </AnchorPane>
-      <JFXButton layoutX="683.0" layoutY="560.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="41.0">
-         <graphic>
-            <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
-         </graphic>
-      </JFXButton>
-      <TableView fx:id="tableClient" layoutX="49.0" layoutY="233.0" prefHeight="322.0" prefWidth="403.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="49.0" />
-      <Label layoutX="480.0" layoutY="149.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Modification des clients" textFill="WHITE">
-         <font>
-            <Font name="Ubuntu Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label contentDisplay="TOP" layoutX="49.0" layoutY="150.0" prefHeight="28.0" prefWidth="190.0" style=": ;" styleClass="titledLabel" stylesheets="@application.css" text="Liste des clients" textFill="WHITE">
-         <font>
-            <Font name="Ubuntu Bold" size="13.0" />
-         </font>
-      </Label>
+      <TabPane layoutX="27.0" layoutY="39.0" prefHeight="512.0" prefWidth="427.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Liste des clients">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="427.0">
+                     <children>
+                        <TableView fx:id="tableClient" layoutX="12.0" layoutY="58.0" prefHeight="344.0" prefWidth="403.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="12.0" />
+                        <JFXTextField fx:id="search" focusColor="#36bc25" layoutX="14.0" layoutY="17.0" prefHeight="28.0" prefWidth="383.0" promptText="Recherche des clients" unFocusColor="#139411">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXCheckBox fx:id="checkCoop" layoutX="106.0" layoutY="416.0" selected="true" text="Coopérative" />
+                        <JFXCheckBox fx:id="checkAgr" layoutX="12.0" layoutY="416.0" selected="true" text="Agriculteur" />
+                        <MaterialDesignIconView glyphName="MAGNIFY" layoutX="380.0" layoutY="40.0" size="25.0" text="" wrappingWidth="25.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <TabPane layoutX="454.0" layoutY="39.0" prefHeight="454.0" prefWidth="385.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="12.0">
+        <tabs>
+          <Tab text="Modification des clients">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="385.0">
+                     <children>
+                        <AnchorPane layoutX="4.0" layoutY="41.0" prefHeight="320.0" prefWidth="378.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0">
+                           <children>
+                              <JFXTextField fx:id="nomV" labelFloat="true" layoutX="23.0" layoutY="29.0" prefHeight="27.0" prefWidth="213.0" promptText="Nom" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="prenomV" labelFloat="true" layoutX="20.0" layoutY="85.0" prefHeight="27.0" prefWidth="213.0" promptText="Prénom" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="adresseV" labelFloat="true" layoutX="20.0" layoutY="148.0" prefHeight="27.0" prefWidth="213.0" promptText="Adresse" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="telephoneV" labelFloat="true" layoutX="20.0" layoutY="214.0" prefHeight="27.0" prefWidth="213.0" promptText="Numéro téléphone (+33)" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXComboBox fx:id="tyV" labelFloat="true" layoutX="20.0" layoutY="276.0" prefHeight="25.0" prefWidth="213.0" promptText="Type Client" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="244.0" layoutY="372.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+                           <graphic>
+                              <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Ajouter des clients">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="4.0" layoutY="33.0" prefHeight="322.0" prefWidth="378.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0">
+                           <children>
+                              <JFXTextField fx:id="nomV1" labelFloat="true" layoutX="23.0" layoutY="29.0" prefHeight="27.0" prefWidth="213.0" promptText="Nom" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="prenomV1" labelFloat="true" layoutX="20.0" layoutY="85.0" prefHeight="27.0" prefWidth="213.0" promptText="Prénom" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="adresseV1" labelFloat="true" layoutX="20.0" layoutY="148.0" prefHeight="27.0" prefWidth="213.0" promptText="Adresse" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="telephoneV1" labelFloat="true" layoutX="20.0" layoutY="214.0" prefHeight="27.0" prefWidth="213.0" promptText="Numéro téléphone (+33)" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXComboBox fx:id="tyV1" labelFloat="true" layoutX="20.0" layoutY="271.0" prefHeight="25.0" prefWidth="213.0" promptText="Type Client" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="248.0" layoutY="359.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

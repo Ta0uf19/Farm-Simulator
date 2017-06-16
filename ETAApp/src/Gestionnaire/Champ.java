@@ -13,7 +13,6 @@ public class Champ {
 	private String adresse = "";
 
 	
-	
 
 	public Champ(int id, String adresse, int surface, String type, String coordGps, String polygone, Client clients) {
 		super();

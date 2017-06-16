@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.weathericons.WeatherIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="pane" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.MachineController">
+   <top>
+      <AnchorPane prefHeight="622.0" prefWidth="851.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="message" layoutX="458.0" layoutY="468.0" prefHeight="28.0" prefWidth="167.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <WeatherIconView />
+            <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="72.0" layoutY="44.0" prefHeight="80.0" prefWidth="174.0" ripplerFill="#f24545" style="-fx-background-color: #6183E9; -fx-background-radius: 0;" text="Ajouter des machines" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="TRUCK" size="30.0" text="+" wrappingWidth="56.0" />
+               </graphic>
+            </JFXButton>
+            <TableView fx:id="tableMachine" layoutX="49.0" layoutY="233.0" prefHeight="322.0" prefWidth="403.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" />
+            <AnchorPane layoutX="522.0" layoutY="213.0" prefHeight="100.0" prefWidth="332.0" style="-fx-background-color: #fff;">
+               <children>
+                  <JFXTextField fx:id="Marque" labelFloat="true" layoutX="23.0" layoutY="29.0" prefHeight="27.0" prefWidth="213.0" promptText="Marque" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="Modele" labelFloat="true" layoutX="20.0" layoutY="85.0" prefHeight="27.0" prefWidth="213.0" promptText="Modèle" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="etat" labelFloat="true" layoutX="20.0" layoutY="134.0" prefHeight="27.0" prefWidth="312.0" promptText="État">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton layoutX="186.0" layoutY="296.0" prefHeight="0.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Sauvegarder" textFill="WHITE">
+                     <graphic>
+                        <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <Text layoutX="31.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des machines">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="542.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modification">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <JFXCheckBox fx:id="checkAgr" layoutX="25.0" layoutY="559.0" selected="true" text="Tracteur" />
+            <JFXCheckBox fx:id="checkAgr1" layoutX="120.0" layoutY="559.0" selected="true" text="Moissoneuse" />
+            <JFXCheckBox fx:id="checkAgr2" layoutX="240.0" layoutY="559.0" selected="true" text="Botteleuse" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

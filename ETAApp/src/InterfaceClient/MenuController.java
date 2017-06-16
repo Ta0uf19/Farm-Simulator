@@ -23,7 +23,7 @@ public class MenuController extends MainController {
 	 */
 	public void logout(ActionEvent event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/InterfaceClient/view/Login.fxml"));
 			this.setNode(root);
 		} catch (IOException e) {
 			e.printStackTrace();
