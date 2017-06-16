@@ -10,9 +10,8 @@ public class Machine {
 	private int etat = 0;
 	private String dispo;
 
-	
-	
 	public Machine(int id, String marque, String modele, int etat) {
+
 		super();
 		this.id = id;
 		this.marque = marque;
