@@ -14,21 +14,22 @@
 
 <BorderPane fx:id="pane" prefHeight="600.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.MenuController">
    <top>
-      <HBox alignment="TOP_RIGHT" prefHeight="22.0" prefWidth="772.0" style="-fx-background-color: #ecf0f1;" BorderPane.alignment="CENTER">
+      <HBox alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="970.0" style="-fx-background-color: #eee;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="label" alignment="CENTER" contentDisplay="RIGHT" prefHeight="71.0" prefWidth="160.0" text="Bonjour, Taoufik">
+            <MaterialDesignIconView fill="#393939" glyphName="ACCOUNT" size="37" textAlignment="CENTER" wrappingWidth="35.0" />
+            <Label fx:id="label" alignment="CENTER" contentDisplay="RIGHT" prefHeight="41.0" prefWidth="96.0" text="Taoufik">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <JFXButton contentDisplay="RIGHT" onAction="#logout" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 0;" text="Se deconnecter" textFill="WHITE">
+            <JFXButton buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#setfullScreen" prefHeight="46.0" prefWidth="59.0" ripplerFill="#d3d3d3" style="-fx-background-color: #fff; -fx-background-radius: 0;" textFill="WHITE">
                <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="LOGOUT" size="30" />
+                  <MaterialDesignIconView glyphName="FULLSCREEN" size="33" wrappingWidth="33.0" />
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#setfullScreen" prefHeight="43.0" prefWidth="43.0" ripplerFill="#d3d3d3" style="-fx-background-color: #bdc3c7; -fx-background-radius: 0;" textFill="WHITE">
+            <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#logout" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 0;" text="Se deconnecter" textFill="WHITE">
                <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="FULLSCREEN" size="35.0" wrappingWidth="35.0" />
+                  <MaterialDesignIconView fill="WHITE" glyphName="LOGOUT" size="30" />
                </graphic>
             </JFXButton>
          </children>

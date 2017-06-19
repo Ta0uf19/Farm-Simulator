@@ -35,14 +35,32 @@ public class ClientDAO implements DAO<Client> {
 		return agr;
 	}
 	@Override
-	public Client ajouter(Client objet) {
-		// TODO Auto-generated method stub
-		return null;
+	public int ajouter(Client c) {
+			Statement stat;
+			try {
+				stat = connexion.createStatement();
+				stat.executeUpdate("INSERT INTO client VALUES (NULL, "
+						+ "'"+ c.getTypeCl() +"', '"+c.getNom()+"', '"+c.getPrenom()+"', '"+c.getTelephone()+"', '"+c.getAdresse()+"');");
+				
+				return 1;
+			} catch (SQLException e) {
+			
+				e.printStackTrace();
+				
+				return 0;
+			}
 	}
 	@Override
-	public Client modifier(Client objet) {
-		// TODO Auto-generated method stub
-		return null;
+	public int modifier(Client c) {
+		Statement stat;
+		try {
+			stat = connexion.createStatement();
+			stat.executeUpdate("UPDATE client SET tyCl='"+c.getTypeCl()+"', nomCl='"+c.getNom()+"', preCl='"+c.getPrenom()+"', telCl='"+c.getTelephone()+"', adrCl='"+c.getAdresse()+"' WHERE IdCl="+c.getId()+";");		
+			return 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 	@Override
 	public void supprimer(Client objet) {

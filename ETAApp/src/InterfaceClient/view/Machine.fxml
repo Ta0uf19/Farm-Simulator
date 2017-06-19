@@ -15,7 +15,7 @@
         <tabs>
           <Tab text="Liste des Tracteurs">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="490.0" prefWidth="822.0">
                      <children>
                         <TableView fx:id="tableTracteur" layoutX="12.0" layoutY="19.0" prefHeight="438.0" prefWidth="403.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="12.0" />
                         <TabPane layoutX="419.0" layoutY="17.0" prefHeight="452.0" prefWidth="405.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="-2.0">
@@ -36,7 +36,7 @@
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="etatTM" labelFloat="true" layoutX="20.0" layoutY="144.0" prefHeight="27.0" prefWidth="213.0" promptText="Etat" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="etatTM" labelFloat="true" layoutX="20.0" layoutY="144.0" prefHeight="27.0" prefWidth="213.0" promptText="Etat de disponibilité" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
@@ -48,7 +48,7 @@
                                                 </JFXTextField>
                                              </children>
                                           </AnchorPane>
-                                          <JFXButton layoutX="258.0" layoutY="324.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+                                          <JFXButton fx:id="tracteurUpdate" layoutX="258.0" layoutY="324.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                                              <graphic>
                                                 <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                                              </graphic>
@@ -73,7 +73,7 @@
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="etatTA" labelFloat="true" layoutX="20.0" layoutY="143.0" prefHeight="27.0" prefWidth="213.0" promptText="Etat" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="etatTA" labelFloat="true" layoutX="20.0" layoutY="143.0" prefHeight="27.0" prefWidth="213.0" promptText="Etat de disponibilité" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
@@ -85,7 +85,7 @@
                                                 </JFXTextField>
                                              </children>
                                           </AnchorPane>
-                                          <JFXButton layoutX="258.0" layoutY="332.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+                                          <JFXButton fx:id="tracteurAdd" layoutX="258.0" layoutY="332.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                                              <graphic>
                                                 <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                                              </graphic>
@@ -113,64 +113,64 @@
                                        <children>
                                           <AnchorPane layoutX="4.0" layoutY="14.0" prefHeight="389.0" prefWidth="404.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="-3.0">
                                              <children>
-                                                <JFXTextField fx:id="marqueB" labelFloat="true" layoutX="20.0" layoutY="21.0" prefHeight="27.0" prefWidth="213.0" promptText="Marque" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="marqueMM" labelFloat="true" layoutX="20.0" layoutY="21.0" prefHeight="27.0" prefWidth="213.0" promptText="Marque" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="modeleB" labelFloat="true" layoutX="20.0" layoutY="71.0" prefHeight="27.0" prefWidth="213.0" promptText="Modèle" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="modeleMM" labelFloat="true" layoutX="20.0" layoutY="71.0" prefHeight="27.0" prefWidth="213.0" promptText="Modèle" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="etatB" labelFloat="true" layoutX="20.0" layoutY="122.0" prefHeight="27.0" prefWidth="147.0" promptText="Etat">
+                                                <JFXTextField fx:id="etatMM" labelFloat="true" layoutX="20.0" layoutY="122.0" prefHeight="27.0" prefWidth="147.0" promptText="Etat de disponibilité">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="lgB" labelFloat="true" layoutX="181.0" layoutY="122.0" prefHeight="27.0" prefWidth="196.0" promptText="Largeur de coupe">
+                                                <JFXTextField fx:id="lgCoupeMM" labelFloat="true" layoutX="181.0" layoutY="122.0" prefHeight="27.0" prefWidth="196.0" promptText="Largeur de coupe">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="consoRM" labelFloat="true" layoutX="16.0" layoutY="180.0" prefHeight="27.0" prefWidth="156.0" promptText="Consomation/heure route">
+                                                <JFXTextField fx:id="consoRMM" labelFloat="true" layoutX="16.0" layoutY="180.0" prefHeight="27.0" prefWidth="156.0" promptText="Consomation/heure route">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="tremieM" labelFloat="true" layoutX="190.0" layoutY="293.0" prefHeight="27.0" prefWidth="179.0" promptText="Taille trémie">
+                                                <JFXTextField fx:id="tremieMM" labelFloat="true" layoutX="190.0" layoutY="293.0" prefHeight="27.0" prefWidth="179.0" promptText="Taille trémie">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField labelFloat="true" layoutX="17.0" layoutY="234.0" prefHeight="27.0" prefWidth="156.0" promptText="Largeur sur une route">
+                                                <JFXTextField fx:id="lgRouteMM" labelFloat="true" layoutX="17.0" layoutY="234.0" prefHeight="27.0" prefWidth="156.0" promptText="Largeur sur une route">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField labelFloat="true" layoutX="190.0" layoutY="233.0" prefHeight="27.0" prefWidth="186.0" promptText="Hauteur">
+                                                <JFXTextField fx:id="hauteurMM" labelFloat="true" layoutX="190.0" layoutY="233.0" prefHeight="27.0" prefWidth="186.0" promptText="Hauteur">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField labelFloat="true" layoutX="17.0" layoutY="293.0" prefHeight="27.0" prefWidth="160.0" promptText="Poids">
+                                                <JFXTextField fx:id="poidsMM" labelFloat="true" layoutX="17.0" layoutY="293.0" prefHeight="27.0" prefWidth="160.0" promptText="Poids">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="tremieM1" labelFloat="true" layoutX="189.0" layoutY="180.0" prefHeight="27.0" prefWidth="185.0" promptText="Consomation/heure fonctionnement">
+                                                <JFXTextField fx:id="consoFMM" labelFloat="true" layoutX="189.0" layoutY="180.0" prefHeight="27.0" prefWidth="185.0" promptText="Consomation/heure fonctionnement">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="modeleB1" labelFloat="true" layoutX="17.0" layoutY="348.0" prefHeight="27.0" prefWidth="361.0" promptText="Capacité réservoir" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="capaciteRMM" labelFloat="true" layoutX="17.0" layoutY="348.0" prefHeight="27.0" prefWidth="361.0" promptText="Capacité réservoir" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
                                              </children>
                                           </AnchorPane>
-                                          <JFXButton layoutX="266.0" layoutY="409.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="6.0">
+                                          <JFXButton fx:id="moissoneuseUpdate" layoutX="266.0" layoutY="409.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="6.0">
                                              <graphic>
                                                 <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                                              </graphic>
@@ -183,64 +183,64 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <JFXButton layoutX="269.0" layoutY="408.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="9.0">
+                                          <JFXButton fx:id="moissoneuseAdd" layoutX="269.0" layoutY="408.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="9.0">
                                              <graphic>
                                                 <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                                              </graphic>
                                           </JFXButton>
                                           <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="389.0" prefWidth="409.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="-3.0">
                                              <children>
-                                                <JFXTextField fx:id="marqueB1" labelFloat="true" layoutX="20.0" layoutY="21.0" prefHeight="27.0" prefWidth="213.0" promptText="Marque" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="marqueMA" labelFloat="true" layoutX="20.0" layoutY="21.0" prefHeight="27.0" prefWidth="213.0" promptText="Marque" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="modeleB1" labelFloat="true" layoutX="20.0" layoutY="71.0" prefHeight="27.0" prefWidth="213.0" promptText="Modèle" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="modeleMA" labelFloat="true" layoutX="20.0" layoutY="71.0" prefHeight="27.0" prefWidth="213.0" promptText="Modèle" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="etatB1" labelFloat="true" layoutX="20.0" layoutY="122.0" prefHeight="27.0" prefWidth="147.0" promptText="Etat">
+                                                <JFXTextField fx:id="etatMA" labelFloat="true" layoutX="20.0" layoutY="122.0" prefHeight="27.0" prefWidth="147.0" promptText="Etat de disponibilité">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="lgB1" labelFloat="true" layoutX="181.0" layoutY="122.0" prefHeight="27.0" prefWidth="196.0" promptText="Largeur de coupe">
+                                                <JFXTextField fx:id="lgCoupeMA" labelFloat="true" layoutX="181.0" layoutY="122.0" prefHeight="27.0" prefWidth="196.0" promptText="Largeur de coupe">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="consoRM1" labelFloat="true" layoutX="16.0" layoutY="180.0" prefHeight="27.0" prefWidth="156.0" promptText="Consomation/heure route">
+                                                <JFXTextField fx:id="consoRMA" labelFloat="true" layoutX="16.0" layoutY="180.0" prefHeight="27.0" prefWidth="156.0" promptText="Consomation/heure route">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="tremieM1" labelFloat="true" layoutX="190.0" layoutY="293.0" prefHeight="27.0" prefWidth="179.0" promptText="Taille trémie">
+                                                <JFXTextField fx:id="tremieMA" labelFloat="true" layoutX="190.0" layoutY="293.0" prefHeight="27.0" prefWidth="179.0" promptText="Taille trémie">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField labelFloat="true" layoutX="17.0" layoutY="234.0" prefHeight="27.0" prefWidth="156.0" promptText="Largeur sur une route">
+                                                <JFXTextField fx:id="lgRouteMA" labelFloat="true" layoutX="17.0" layoutY="234.0" prefHeight="27.0" prefWidth="156.0" promptText="Largeur sur une route">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField labelFloat="true" layoutX="190.0" layoutY="233.0" prefHeight="27.0" prefWidth="186.0" promptText="Hauteur">
+                                                <JFXTextField fx:id="hauteurMA" labelFloat="true" layoutX="190.0" layoutY="233.0" prefHeight="27.0" prefWidth="186.0" promptText="Hauteur">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField labelFloat="true" layoutX="17.0" layoutY="293.0" prefHeight="27.0" prefWidth="160.0" promptText="Poids">
+                                                <JFXTextField fx:id="poidsMA" labelFloat="true" layoutX="17.0" layoutY="293.0" prefHeight="27.0" prefWidth="160.0" promptText="Poids">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="tremieM11" labelFloat="true" layoutX="189.0" layoutY="180.0" prefHeight="27.0" prefWidth="185.0" promptText="Consomation/heure fonctionnement">
+                                                <JFXTextField fx:id="consoFMA" labelFloat="true" layoutX="189.0" layoutY="180.0" prefHeight="27.0" prefWidth="185.0" promptText="Consomation/heure fonctionnement">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="modeleB11" labelFloat="true" layoutX="17.0" layoutY="348.0" prefHeight="27.0" prefWidth="361.0" promptText="Capacité réservoir" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                                <JFXTextField fx:id="capaciteRMA" labelFloat="true" layoutX="17.0" layoutY="348.0" prefHeight="27.0" prefWidth="361.0" promptText="Capacité réservoir" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
@@ -270,29 +270,29 @@
                                        <children>
                                           <AnchorPane layoutX="4.0" layoutY="30.0" prefHeight="304.0" prefWidth="392.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0">
                                              <children>
-                                                <JFXTextField fx:id="adresseV121" labelFloat="true" layoutX="14.0" layoutY="153.0" prefHeight="27.0" prefWidth="353.0" promptText="Etat" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
+                                                <JFXTextField fx:id="etatBM" labelFloat="true" layoutX="14.0" layoutY="153.0" prefHeight="27.0" prefWidth="353.0" promptText="Etat de disponibilité" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="prenomV121" labelFloat="true" layoutX="15.0" layoutY="95.0" prefHeight="27.0" prefWidth="351.0" promptText="Modèle" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
+                                                <JFXTextField fx:id="modeleBM" labelFloat="true" layoutX="15.0" layoutY="95.0" prefHeight="27.0" prefWidth="351.0" promptText="Modèle" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="nomV121" labelFloat="true" layoutX="15.0" layoutY="41.0" prefHeight="27.0" prefWidth="355.0" promptText="Marque" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
+                                                <JFXTextField fx:id="marqueBM" labelFloat="true" layoutX="15.0" layoutY="41.0" prefHeight="27.0" prefWidth="355.0" promptText="Marque" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="adresseV1211" labelFloat="true" layoutX="14.0" layoutY="213.0" prefHeight="27.0" prefWidth="353.0" promptText="Type d'une botteleuse" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="25.0">
+                                                <JFXTextField fx:id="typeBM" labelFloat="true" layoutX="14.0" layoutY="213.0" prefHeight="27.0" prefWidth="353.0" promptText="Type d'une botteleuse" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="25.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
                                              </children>
                                           </AnchorPane>
-                                          <JFXButton layoutX="258.0" layoutY="345.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+                                          <JFXButton fx:id="botteleuseUpdate" layoutX="258.0" layoutY="345.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                                              <graphic>
                                                 <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                                              </graphic>
@@ -305,29 +305,29 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <JFXButton layoutX="262.0" layoutY="354.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="10.0">
+                                          <JFXButton fx:id="botteleuseAdd" layoutX="262.0" layoutY="354.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="10.0">
                                              <graphic>
                                                 <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                                              </graphic>
                                           </JFXButton>
                                           <AnchorPane layoutX="4.0" layoutY="22.0" prefHeight="304.0" prefWidth="392.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0">
                                              <children>
-                                                <JFXTextField fx:id="adresseV1211" labelFloat="true" layoutX="14.0" layoutY="153.0" prefHeight="27.0" prefWidth="353.0" promptText="Etat">
+                                                <JFXTextField fx:id="etatBA" labelFloat="true" layoutX="14.0" layoutY="153.0" prefHeight="27.0" prefWidth="353.0" promptText="Etat de disponibilité">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="prenomV1211" labelFloat="true" layoutX="15.0" layoutY="95.0" prefHeight="27.0" prefWidth="351.0" promptText="Modèle">
+                                                <JFXTextField fx:id="modeleBA" labelFloat="true" layoutX="15.0" layoutY="95.0" prefHeight="27.0" prefWidth="351.0" promptText="Modèle">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="nomV1211" labelFloat="true" layoutX="15.0" layoutY="41.0" prefHeight="27.0" prefWidth="355.0" promptText="Marque" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
+                                                <JFXTextField fx:id="marqueBA" labelFloat="true" layoutX="15.0" layoutY="41.0" prefHeight="27.0" prefWidth="355.0" promptText="Marque" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
                                                 </JFXTextField>
-                                                <JFXTextField fx:id="adresseV12111" labelFloat="true" layoutX="14.0" layoutY="213.0" prefHeight="27.0" prefWidth="353.0" promptText="Type d'une botteleuse">
+                                                <JFXTextField fx:id="typeBA" labelFloat="true" layoutX="14.0" layoutY="213.0" prefHeight="27.0" prefWidth="353.0" promptText="Type d'une botteleuse">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>

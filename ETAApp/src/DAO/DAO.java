@@ -16,7 +16,7 @@ public interface DAO<Type> {
 	 * Permet de recupérer toutes les infos en renvoyant une liste.
 	 */
 	public List<Type> recupererTout();
-	public Type ajouter(Type objet);
-	public Type modifier(Type objet);
+	public int ajouter(Type objet);
+	public int modifier(Type objet);
 	public void supprimer(Type objet);
 }

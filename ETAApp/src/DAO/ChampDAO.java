@@ -19,15 +19,15 @@ public class ChampDAO implements DAO<Champ> {
 	}
 
 	@Override
-	public Champ ajouter(Champ objet) {
+	public int ajouter(Champ objet) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	public Champ modifier(Champ objet) {
+	public int modifier(Champ objet) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override

@@ -65,7 +65,7 @@
                               <JFXComboBox fx:id="tyV" labelFloat="true" layoutX="20.0" layoutY="276.0" prefHeight="25.0" prefWidth="213.0" promptText="Type Client" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                         </AnchorPane>
-                        <JFXButton layoutX="244.0" layoutY="372.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+                        <JFXButton fx:id="updateClient" layoutX="244.0" layoutY="372.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Modifier" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                            <graphic>
                               <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                            </graphic>
@@ -103,7 +103,7 @@
                               <JFXComboBox fx:id="tyV1" labelFloat="true" layoutX="20.0" layoutY="271.0" prefHeight="25.0" prefWidth="213.0" promptText="Type Client" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                         </AnchorPane>
-                        <JFXButton layoutX="248.0" layoutY="359.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="10.0">
+                        <JFXButton fx:id="addClient" layoutX="248.0" layoutY="359.0" prefHeight="41.0" prefWidth="127.0" ripplerFill="#5b9055" style="-fx-background-color: #1AC24B; -fx-background-radius: 0;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="10.0">
                            <graphic>
                               <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="30" wrappingWidth="32.0" />
                            </graphic>

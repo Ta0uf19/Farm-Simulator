@@ -1,14 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="622.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.HomeController">
+<AnchorPane prefHeight="664.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.OrderController">
    <children>
-      <Text layoutX="41.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page commande">
+      <TableView fx:id="tableCmd" layoutX="33.0" layoutY="29.0" prefHeight="305.0" prefWidth="309.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" />
+      <ListView fx:id="listMachine" layoutX="33.0" layoutY="389.0" prefHeight="227.0" prefWidth="309.0" />
+      <AnchorPane layoutX="366.0" layoutY="29.0" prefHeight="311.0" prefWidth="378.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="366.0" AnchorPane.rightAnchor="107.0">
+         <children>
+            <JFXTextField fx:id="nomV" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="27.0" prefWidth="213.0" promptText="Nom client" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="prenomV" labelFloat="true" layoutX="20.0" layoutY="76.0" prefHeight="27.0" prefWidth="213.0" promptText="Date de la commande" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="adresseV" labelFloat="true" layoutX="20.0" layoutY="132.0" prefHeight="27.0" prefWidth="164.0" promptText="Bottelage" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="194.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="telephoneV" labelFloat="true" layoutX="20.0" layoutY="189.0" prefHeight="27.0" prefWidth="338.0" promptText="Transport matériel" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="telephoneV1" labelFloat="true" layoutX="21.0" layoutY="251.0" prefHeight="27.0" prefWidth="344.0" promptText="Adresse du champ" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="13.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="adresseV1" labelFloat="true" layoutX="194.0" layoutY="132.0" prefHeight="27.0" prefWidth="164.0" promptText="Type Bottelage" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="362.0" layoutY="387.0" prefHeight="254.0" prefWidth="378.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="366.0" AnchorPane.rightAnchor="107.0">
+         <children>
+            <JFXTextField fx:id="nomV1" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="27.0" prefWidth="213.0" promptText="Nom machine" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="prenomV1" labelFloat="true" layoutX="20.0" layoutY="76.0" prefHeight="27.0" prefWidth="213.0" promptText="Type machine" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="adresseV1" labelFloat="true" layoutX="20.0" layoutY="132.0" prefHeight="27.0" prefWidth="164.0" promptText="Tonnes totales récoltées" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="194.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="telephoneV1" labelFloat="true" layoutX="20.0" layoutY="189.0" prefHeight="27.0" prefWidth="338.0" promptText="Nombre de kilomètre parcourus pendant la récolte" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="adresseV11" labelFloat="true" layoutX="194.0" layoutY="132.0" prefHeight="27.0" prefWidth="164.0" promptText="Durée de la récolte" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <Text layoutX="33.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les machines utilisées">
          <font>
-            <Font size="35.0" />
+            <Font size="20.0" />
          </font>
       </Text>
    </children>

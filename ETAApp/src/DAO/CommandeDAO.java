@@ -19,15 +19,15 @@ public class CommandeDAO implements DAO<Commande> {
 	}
 
 	@Override
-	public Commande ajouter(Commande objet) {
+	public int ajouter(Commande objet) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	public Commande modifier(Commande objet) {
+	public int modifier(Commande objet) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override

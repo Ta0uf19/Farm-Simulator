@@ -7,20 +7,30 @@ import java.util.ResourceBundle;
 
 import DAO.ClientDAO;
 import DAO.DAO;
+import DAO.MachineDAO;
+import Gestionnaire.Botteleuse;
 import Gestionnaire.Client;
+import Gestionnaire.Machine;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class ClientController implements Initializable {
 	@FXML private TableView<Client> tableClient;
@@ -32,7 +42,20 @@ public class ClientController implements Initializable {
 	@FXML private TextField adresseV;
 	@FXML private TextField telephoneV;
 	@FXML private ComboBox<String> tyV; // checkbox
-	    
+	  
+	
+	@FXML private TextField nomV1;
+	@FXML private TextField prenomV1;
+	@FXML private TextField adresseV1;
+	@FXML private TextField telephoneV1;
+	@FXML private ComboBox<String> tyV1; // checkbox
+	/*
+	 * Update-add FXML
+	 *
+	 */
+	@FXML private Button addClient;
+	@FXML private Button updateClient;
+	private int selectedId;
 	/*
 	 * Checkbox à compléter
 	 */
@@ -62,19 +85,10 @@ public class ClientController implements Initializable {
 		/*
 		 * Récupérer la liste des clients
 		 */
-		
-		getClient();
+		loadData();
 		tyV.getItems().addAll("Agriculteur","Coopérative");
+		tyV1.getItems().addAll("Agriculteur","Coopérative");
 		
-		id.setPrefWidth(100);
-		id.setCellValueFactory(new PropertyValueFactory<Client,Integer>("id"));
-        nom.setPrefWidth(150);
-        nom.setCellValueFactory(new PropertyValueFactory<Client,String>("nom"));
-        type.setPrefWidth(150);
-        type.setCellValueFactory(new PropertyValueFactory<Client,String>("typeCl"));
-        
-        tableClient.setItems(clients);
-        tableClient.getColumns().addAll(id,type, nom);
         /*
          * Option - recherche ecouter l'input
          */
@@ -117,6 +131,7 @@ public class ClientController implements Initializable {
         
         tableClient.setOnMouseClicked(e -> {
         	Client client = tableClient.getSelectionModel().getSelectedItem();
+        	selectedId = client.getId();
         	nomV.setText(client.getNom());
         	prenomV.setText(client.getPrenom());
         	adresseV.setText(client.getAdresse());
@@ -124,15 +139,36 @@ public class ClientController implements Initializable {
         	//tyV.setTooltip(client.getTypeCl()));
         });
         
-	}
-	
-	private void getClient() {
-		DAO<Client> client = new ClientDAO();
-		List<Client> listClient = client.recupererTout();
-		
-		clients.addAll(listClient);
-		clientsFiltred.addAll(clients);
-		
+        /*
+         * Update - add clients
+         */
+        
+        updateClient.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				Client c = new Client(selectedId, nomV.getText(), prenomV.getText(), adresseV.getText(), telephoneV.getText());
+				DAO<Client> m = new ClientDAO();
+				m.modifier(c);
+				loadData();
+                alert("Les informations client ont été mise à jour.", "Modification", (Stage) ((Node) event.getSource()).getScene().getWindow());
+
+				
+			}});
+        
+        addClient.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Client c = new Client(null, nomV1.getText(), prenomV1.getText(), adresseV1.getText(), telephoneV1.getText());
+				DAO<Client> m = new ClientDAO();
+				m.ajouter(c);
+				loadData();
+                alert("Le client "+c.getNom()+" a été ajouté avec succès.", "Ajout", (Stage) ((Node) event.getSource()).getScene().getWindow());
+
+				
+			}
+        });
+        
 	}
 	
 	/*
@@ -181,6 +217,43 @@ public class ClientController implements Initializable {
 	        tableClient.getSortOrder().addAll(sortOrder);
 	        tableClient.setItems(clientsFiltred);
 	 }
+	 
+	 public void loadData() {
+		 
+		 	clearData();
+		 
+		 	DAO<Client> client = new ClientDAO();
+			List<Client> listClient = client.recupererTout();
+			
+			clients.addAll(listClient);
+			clientsFiltred.addAll(clients);
+		
+			
+			id.setPrefWidth(100);
+			id.setCellValueFactory(new PropertyValueFactory<Client,Integer>("id"));
+	        nom.setPrefWidth(150);
+	        nom.setCellValueFactory(new PropertyValueFactory<Client,String>("nom"));
+	        type.setPrefWidth(150);
+	        type.setCellValueFactory(new PropertyValueFactory<Client,String>("typeCl"));
+	        
+	        tableClient.setItems(clients);
+	        tableClient.getColumns().addAll(id,type, nom);
+		 
+	 }
+	 public void clearData() {
+		 clients.clear();
+		 tableClient.getItems().clear();
+		 tableClient.getColumns().clear();
+	 }
+	 
+	 public void alert(String text, String title, Stage stage) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+	        alert.setTitle(title);
+	        alert.initOwner(stage);
+	        alert.setHeaderText(null);
+	        alert.setContentText(text);
+	        alert.showAndWait();
+		}
 	    
 	    
 	 

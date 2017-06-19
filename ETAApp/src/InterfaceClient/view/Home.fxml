@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="622.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.HomeController">
+<AnchorPane prefHeight="622.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceClient.HomeController">
    <children>
-      <Text layoutX="41.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accueil">
+      <WebView fx:id="weather" layoutX="32.0" layoutY="21.0" prefHeight="527.0" prefWidth="484.0" />
+      <TableView fx:id="tableCommande" layoutX="545.0" layoutY="80.0" prefHeight="429.0" prefWidth="345.0" stylesheets="@TableView.css" tableMenuButtonVisible="true" />
+      <Text layoutX="545.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dernières commandes">
          <font>
-            <Font size="35.0" />
+            <Font size="27.0" />
          </font>
       </Text>
    </children>

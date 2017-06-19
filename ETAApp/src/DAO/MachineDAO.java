@@ -33,29 +33,44 @@ public class MachineDAO implements DAO<Machine> {
 	}
 
 	@Override
-	public Machine ajouter(Machine objet) {
+	public int ajouter(Machine m) {
 		try{
-			int id=objet.getId();
-			String marque=objet.getMarque();
-			String modele=objet.getModele();
-			int etat = objet.getEtat();
-			
-			Machine machine = null;
-			
+		
 		Statement stat = connexion.createStatement();
-		int resultat = stat.executeUpdate("INSERT INTO machine VALUES ('"+id+"','"+marque+"','"+modele+"','"+etat+"';");
-		
-//		if(machine.getString("tyCl").equals("Tracteur"))
-//			agr = new Machine(resultat.getInt("IdCl"), resultat.getString("nomCl"), resultat.getString("adrCl"), resultat.getString("telCl"));
-//		else
-//			agr = new Machine(resultat.getInt("IdCl"), resultat.getString("nomCl"), resultat.getString("preCl"), resultat.getString("adrCl"), resultat.getString("telCl"));
-//	}
-		//modifier aussi la table concerné par la machine(tracteur...)
-		
+		stat.executeUpdate("INSERT INTO machine VALUES (NULL, '"+m.getMarque()+"' , '"+m.getModele()+"' , '"+m.getEtat()+"');", Statement.RETURN_GENERATED_KEYS);
+		ResultSet rs = stat.getGeneratedKeys();
+		if (rs.next()) {
+            String idMa = rs.getString(1);
+            
+            if(m instanceof Botteleuse) {
+				Botteleuse b = (Botteleuse) m;
+				stat.executeUpdate("INSERT INTO botteleuse VALUES (NULL, "
+						+ "'"+ b.getType()+"', '"+idMa+"');");
+			}
+			if(m instanceof Tracteur) {
+				Tracteur b = (Tracteur) m;
+				stat.executeUpdate("INSERT INTO tracteur VALUES (NULL, "
+						+ "'"+ b.getCapacite()+"', '"+idMa+"');");
+			}
+			if(m instanceof Moissoneuse) {
+				Moissoneuse mo = (Moissoneuse) m;
+				stat.executeUpdate("INSERT INTO moissonneuse VALUES (NULL,"
+						+ "'"+ mo.getLgCoupe() +"',"
+						+ "'"+ mo.getConsoR() +"',"
+						+ "'"+ mo.getConsoF() +"',"
+						+ "'"+ mo.getTremie() +"',"
+						+ "'"+ mo.getLgRoute() +"',"
+						+ "'"+ mo.getHauteur() +"',"
+						+ "'"+ idMa +"',"
+						+ "'"+ mo.getPoids() +"',"
+						+ "'"+ mo.getCapaciteReserve() +"');");
+			}
+		}
+
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
-		return null;
+		return 0;
 	}
 	
 	@Override
@@ -118,22 +133,48 @@ public class MachineDAO implements DAO<Machine> {
 	
 
 	@Override
-	public Machine modifier(Machine objet) {
-		int id=objet.getId();
-		String marque=objet.getMarque();
-		String modele=objet.getModele();
-		int etat=objet.getEtat();
+	public int modifier(Machine m) {
 		
-		Machine machine = null;
+		int resultat = 0;
 		try{
-	Statement stat = connexion.createStatement();
-	int resultat = stat.executeUpdate("UPDATE INTO machine VALUES ('"+id+"','"+marque+"','"+modele+"','"+etat+"';");
-	return machine;
-	
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
-		return machine;
+			Statement stat = connexion.createStatement();
+			stat.executeUpdate("UPDATE machine SET "
+					+ "mqMa='"+ m.getMarque() +"',"
+					+ "mdMa='" + m.getModele() + "',"
+					+ "etatMa='"+m.getEtat()+"' WHERE idMa='"+m.getId()+"';");
+			if(m instanceof Botteleuse) {
+					Botteleuse b = (Botteleuse) m;
+					stat.executeUpdate("UPDATE botteleuse SET "
+							+ "tyB='"+ b.getType()+"' WHERE idMa='"+b.getId()+"';");
+			}
+			if(m instanceof Tracteur) {
+				Tracteur b = (Tracteur) m;
+				stat.executeUpdate("UPDATE tracteur SET "
+						+ "capT='"+ b.getCapacite()+"' WHERE idMa='"+b.getId()+"';");
+			}
+			if(m instanceof Moissoneuse) {
+				Moissoneuse mo = (Moissoneuse) m;
+				stat.executeUpdate("UPDATE moissonneuse SET "
+						+ "lgCoupeM='"+ mo.getLgCoupe() +"',"
+						+ "consoRM='"+ mo.getConsoR() +"',"
+						+ "consoFM='"+ mo.getConsoF() +"',"
+						+ "tremieM='"+ mo.getTremie() +"',"
+						+ "lgRouteM='"+ mo.getLgRoute() +"',"
+						+ "htM='"+ mo.getHauteur() +"',"
+						+ "pdsM='"+ mo.getPoids() +"',"
+						+ "capaciteReservM='"+ mo.getCapaciteReserve() +"'"
+						+ " WHERE idMa='"+mo.getId()+"';");
+			}
+			
+			
+			resultat = 1;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			resultat = 0;
+		}
+		
+		return resultat;
 	}
 
 	@Override
