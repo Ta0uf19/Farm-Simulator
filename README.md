@@ -12,10 +12,10 @@ Map Field management system that facilitates remote monitoring of agricultural l
 </div>
 <h2>Libraries</h2>
 <img src="https://image.ibb.co/btrcan/logo_JFX.png" alt="logo_JFX" width="200px" border="0">
-JavaFX Material Design Library<br/>
+<a href="https://github.com/jfoenixadmin/JFoenix"><b>JFoenix</b></a> JavaFX Material Design Library<br/>
 
 <img src="https://image.ibb.co/juP8gS/gmapsfx.png" alt="gmapsfx" width="200px" border="0">
-Wrapper to the Google Map's Javascript API
+<a href="http://rterp.github.io/GMapsFX/"><b>GmapsFX</b></a> Wrapper to the Google Map's Javascript API
 
 <h2>Licence</h2>
 <p>GPLv3
