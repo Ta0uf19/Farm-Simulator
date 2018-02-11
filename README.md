@@ -1,7 +1,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # Farm Management Software
-Java/FX Application helps agronomists and farmers collaborate on farming decisions
-Map Field management system that facilitates remote monitoring of agricultural land and enables its users to efficiently plan and carry out agricultural operations.
+Java/FX Application helps agronomists and farmers collaborate on farming decisions<br/>
+Map Field management system facilitates remote monitoring of agricultural land and enables its users to efficiently plan and carry out agricultural operations.
 <h3>Screen</h3>
 <div>
 <img src="https://preview.ibb.co/jhDb2b/1.jpg" width="420px" height="250px">
